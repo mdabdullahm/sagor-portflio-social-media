@@ -25,7 +25,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <img src="/navlogo.png" alt="SAGAR" className="w-13  h-13"/>
             <p className="text-2xl font-bold bg-gradient-to-r from-[#76153C] to-black bg-clip-text text-transparent">
-              SAGAR
+              SAGOR
             </p>
           </div>
 
