@@ -1,4 +1,5 @@
 import AboutPreview from "@/components/home/AboutPreview";
+import CTA from "@/components/home/CTA";
 import Hero from "@/components/home/Hero";
 import Portfolio from "@/components/home/Portfolio";
 import Services from "@/components/home/Services";
@@ -14,6 +15,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
       <WhyChooseUs/>
       <Portfolio/>
       <Testimonials/>
+      <CTA/>
     </main>
   );
 }

@@ -7,100 +7,102 @@ const Testimonials = () => {
   const reviews = [
     {
       id: 1,
-      name: "আরিফুর রহমান",
+      name: "Arifur Rahman",
       role: "CEO, TechBD",
-      comment: "তাদের সোশ্যাল মিডিয়া স্ট্র্যাটেজি আমাদের ব্যবসার সেলস প্রায় ৪০% বাড়িয়ে দিয়েছে। তাদের কাজের মান সত্যিই অসাধারণ!",
+      comment: "Their social media strategy has increased our sales by almost 40%. The quality of work is truly exceptional!",
       rating: 5,
       img: "https://i.pravatar.cc/150?u=1",
     },
     {
       id: 2,
-      name: "তানজিলা আক্তার",
+      name: "Tanzila Akhter",
       role: "Founder, StyleHub",
-      comment: "আমার পেজের কন্টেন্ট ডিজাইন নিয়ে আমি খুব চিন্তিত ছিলাম। কিন্তু এই টিমের গ্রাফিক্স ডিজাইন আমার ব্র্যান্ডের চেহারা বদলে দিয়েছে।",
+      comment: "I was very worried about the content design of my page. But this team changed the look of my brand.",
       rating: 5,
       img: "https://i.pravatar.cc/150?u=2",
     },
     {
       id: 3,
-      name: "কামরুল হাসান",
+      name: "Kamrul Hasan",
       role: "Marketing Manager",
-      comment: "খুবই প্রফেশনাল টিম। তারা সময়মতো ডেলিভারি দেয় এবং প্রতিটি রিপোর্ট খুব সুন্দরভাবে বুঝিয়ে দেয়। আমি তাদের সার্ভিস নিতে রিকমেন্ড করি।",
+      comment: "Very professional team. They deliver on time and explain every report. I highly recommend.",
       rating: 5,
       img: "https://i.pravatar.cc/150?u=3",
     },
+    {
+      id: 4,
+      name: "Sayem Ahmed",
+      role: "Founder, EcoShop",
+      comment: "Their ad campaign management has significantly reduced our customer acquisition costs. Thank you!",
+      rating: 5,
+      img: "https://i.pravatar.cc/150?u=4",
+    },
+    {
+      id: 5,
+      name: "Nusrat Jahan",
+      role: "Director, Foodie",
+      comment: "Awesome graphics and video content! Our Soul Video Engage has been viewed 3 times more than before.",
+      rating: 5,
+      img: "https://i.pravatar.cc/150?u=5",
+    },
   ];
 
+  // লুপ ঠিক রাখার জন্য অ্যারেকে ডাবল করে দিচ্ছি
+  const doubleReviews = [...reviews, ...reviews];
+
   return (
-    <section className="py-10 relative overflow-hidden">
-      {/* ব্যাকগ্রাউন্ড ডেকোরেশন */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#76153C]/10 rounded-full blur-3xl -ml-32 -mt-32"></div>
-      
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* হেডার অংশ */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h4 className="text-[#76153C] font-bold tracking-widest uppercase text-sm mb-3">
-            ক্লায়েন্ট রিভিউ
-          </h4>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-            আমাদের কাস্টমাররা <br /> 
-            <span className="text-[#76153C]">যা বলছেন</span>
-          </h2>
-          <p className="text-gray-600 text-lg">
-            আমরা কাজের মানে বিশ্বাসী। আমাদের ওপর আস্থা রাখার জন্য আমরা আমাদের ক্লায়েন্টদের প্রতি কৃতজ্ঞ।
-          </p>
-        </div>
+    <section className="py-15 bg-white overflow-hidden">
+      <div className="max-w-full mx-auto px-4 mb-16 text-center">
+        <h4 className="text-[#76153C] font-bold tracking-widest uppercase text-sm mb-3">
+          Client Reviews
+        </h4>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
+          What Our <span className="text-[#76153C]">Customers Said</span>
+        </h2>
+      </div>
 
-        {/* টেস্টিনিমোনিয়াল গ্রিড */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review) => (
+      {/* স্লাইডিং কন্টেইনার */}
+      <div className="relative">
+        <div className="animate-scroll flex gap-8">
+          {doubleReviews.map((review, index) => (
             <div 
-              key={review.id} 
-              className="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:-translate-y-2 transition-transform duration-300 relative"
+              key={index} 
+              className="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#76153C]/20 transition-all duration-300"
             >
-              {/* কোট আইকন */}
-              <div className="absolute top-6 right-8 text-[#76153C]/10">
-                <Quote size={60} fill="currentColor" />
-              </div>
-
-              {/* রেটিং স্টারস */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} size={18} className="fill-[#76153C] text-[#76153C]" />
-                ))}
+              {/* রেটিং এবং কোট */}
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex gap-1">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} size={18} className="fill-[#76153C] text-[#76153C]" />
+                  ))}
+                </div>
+                <Quote size={40} className="text-[#76153C]/10" fill="currentColor" />
               </div>
 
               {/* কমেন্ট */}
-              <p className="text-gray-700 leading-relaxed mb-8 italic relative z-10">
+              <p className="text-gray-700 leading-relaxed mb-8 h-20 overflow-hidden text-ellipsis">
                 "{review.comment}"
               </p>
 
-              {/* ইউজার প্রোফাইল */}
-              <div className="flex items-center gap-4 border-t border-gray-100 pt-6">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#76153C]/20 p-1">
-                  <img 
-                    src={review.img} 
-                    alt={review.name} 
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
+              {/* প্রোফাইল */}
+              <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
+                <img 
+                  src={review.img} 
+                  alt={review.name} 
+                  className="w-12 h-12 rounded-full border-2 border-[#76153C]/20"
+                />
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg">{review.name}</h4>
+                  <h4 className="font-bold text-gray-900">{review.name}</h4>
                   <p className="text-gray-500 text-sm">{review.role}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* নিচে একটি ছোট ট্রাস্ট মেসেজ */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 font-medium">
-            বিশ্বজুড়ে <span className="text-[#76153C] font-bold">৫০০+</span> সফল ব্যবসার সঙ্গী আমরা।
-          </p>
-        </div>
-
+        
+        {/* দুই পাশে হালকা শ্যাডো যাতে স্লাইডিং স্মুথ মনে হয় */}
+        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
       </div>
     </section>
   );
