@@ -20,8 +20,8 @@ const Hero = () => {
               Professional Digital Marketer
             </h4>
             <h1 className="text-4xl md:text-6xl font-black text-gray-900 leading-tight">
-              Ami apnar brand <br /> 
-              <span className="text-[#76153C]">ke online e boro</span> korte shahajjo kori
+              I help scale your <br /> 
+              <span className="text-[#76153C]">brand</span> through digital marketing
             </h1>
             <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               I'm <span className="text-[#76153C] font-bold">Sagor</span> a digital marketing expert. With the right strategy and content, I can increase your business's engagement and sales by several folds.

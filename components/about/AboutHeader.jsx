@@ -13,7 +13,7 @@ const AboutHeader = () => {
         <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#76153C]/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center justify-center gap-2 mb-6 text-sm font-semibold tracking-wide uppercase">
           <Link href="/" className="text-gray-500 hover:text-[#76153C] transition-colors">
