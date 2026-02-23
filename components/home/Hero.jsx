@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="w-96 h-96 bg-[#76153C] rounded-full blur-3xl -mr-32 -mt-32"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* বাম পাশ: কন্টেন্ট */}
