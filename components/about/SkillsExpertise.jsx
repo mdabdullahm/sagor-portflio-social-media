@@ -6,7 +6,7 @@ import {
   BarChart3, 
   Search, 
   PenTool, 
-  Mail, 
+  Music2, // TikTok এর জন্য আইকন হিসেবে Music2 ব্যবহার করছি
   Smartphone,
   CheckCircle2
 } from "lucide-react";
@@ -14,44 +14,45 @@ import {
 const SkillsExpertise = () => {
   const mainSkills = [
     {
-      title: "Social Media Strategy",
-      desc: "Developing data-driven plans to increase brand awareness and engagement.",
+      title: "Digital Marketing Strategy",
+      // আপনার দেওয়া পয়েন্টগুলো এখানে প্রফেশনাল ইংলিশে দেওয়া হয়েছে
+      desc: "Creating & implementing ROI-driven strategies across Facebook, Instagram, Google, and YouTube. Specialized in monthly & weekly campaign planning.",
       icon: <Target size={30} />,
     },
     {
       title: "Paid Advertising",
-      desc: "Expertise in Meta Ads, Google Ads, and LinkedIn Ads with high ROI.",
+      desc: "Expertise in Meta Ads, Google Ads, and LinkedIn Ads with a focus on high-conversion funnels and low CPA.",
       icon: <Smartphone size={30} />,
     },
     {
       title: "Data Analytics",
-      desc: "Interpreting complex data to optimize campaigns and improve performance.",
+      desc: "Interpreting complex data to optimize live campaigns and providing detailed growth reports for decision making.",
       icon: <BarChart3 size={30} />,
     },
     {
-      title: "Search Engine Optimization",
-      desc: "Improving organic visibility and ranking on major search engines.",
+      title: "SEO Optimization",
+      desc: "Improving organic visibility and ranking on major search engines to drive sustainable long-term traffic.",
       icon: <Search size={30} />,
     },
     {
       title: "Content Marketing",
-      desc: "Crafting compelling stories and copy that resonate with the audience.",
+      desc: "Crafting compelling brand stories and viral copy that resonates with your target audience and builds community.",
       icon: <PenTool size={30} />,
     },
     {
-      title: "Email Automation",
-      desc: "Setting up high-converting email funnels and personalized sequences.",
-      icon: <Mail size={30} />,
+      title: "TikTok Marketing", // ইমেইল এর বদলে TikTok
+      desc: "Leveraging TikTok trends and short-form video strategies to drive brand virality and reach younger demographics.",
+      icon: <Music2 size={30} />,
     },
   ];
 
   const tools = [
-    "Meta Ads Manager", "Google Analytics", "SEMRush", "Canva Pro", 
-    "Mailchimp", "WordPress", "Buffer", "Hootsuite", "Ahrefs"
+    "Meta Ads Manager", "Google Analytics", "SEMRush", "TikTok Ads", 
+    "Canva Pro", "WordPress", "Buffer", "Ahrefs", "CapCut"
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -66,7 +67,7 @@ const SkillsExpertise = () => {
             </h2>
           </div>
           <p className="text-gray-600 text-lg max-w-md">
-            I combine creativity with technical knowledge to deliver exceptional results in the digital space.
+            I blend strategic planning with creative execution to deliver exceptional results in the digital landscape.
           </p>
         </div>
 
@@ -90,9 +91,8 @@ const SkillsExpertise = () => {
           ))}
         </div>
 
-        {/* Tools & Technologies Stack */}
-        <div className="bg-[#76153C] rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
-          {/* Decorative background circle */}
+        {/* Tools Stack - আপনার ব্র্যান্ড কালার #76153C */}
+        <div className="bg-[#76153C] rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden shadow-2xl shadow-[#76153C]/20">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
           
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
@@ -101,7 +101,7 @@ const SkillsExpertise = () => {
                 Tools & Tech Stack
               </h3>
               <p className="text-white/70">
-                The platforms and software I use daily to drive growth for my clients.
+                The cutting-edge platforms I use to ensure your brand's growth.
               </p>
             </div>
             
