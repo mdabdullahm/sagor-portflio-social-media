@@ -4,11 +4,13 @@ import React from "react";
 import { Check, Target, Smartphone, Layers, Music2, Search, TrendingUp } from "lucide-react";
 
 const Packages = () => {
+  const whatsappNumber = "8801788819781"; // International format for WhatsApp
+
   const servicePackages = [
     {
       title: "Strategy Pack",
       serviceName: "Digital Marketing Strategy",
-      price: "199",
+      price: "99", // Reduced Price
       icon: <Target size={24} />,
       features: [
         "Full Business Audit",
@@ -20,7 +22,7 @@ const Packages = () => {
     {
       title: "Ads Master",
       serviceName: "Paid Advertising",
-      price: "399",
+      price: "249", // Reduced Price
       icon: <Smartphone size={24} />,
       features: [
         "Meta & Google Ads",
@@ -32,7 +34,7 @@ const Packages = () => {
     {
       title: "Social Pro",
       serviceName: "Social Media Management",
-      price: "249",
+      price: "149", // Reduced Price
       icon: <Layers size={24} />,
       features: [
         "12 Custom Posts / Mo",
@@ -44,7 +46,7 @@ const Packages = () => {
     {
       title: "Viral Growth",
       serviceName: "TikTok & Reels Marketing",
-      price: "299",
+      price: "199", // Reduced Price
       icon: <Music2 size={24} />,
       features: [
         "8 Viral Video Scripts",
@@ -56,7 +58,7 @@ const Packages = () => {
     {
       title: "Search Rank",
       serviceName: "SEO & Website Growth",
-      price: "349",
+      price: "229", // Reduced Price
       icon: <Search size={24} />,
       features: [
         "Technical SEO Audit",
@@ -68,7 +70,7 @@ const Packages = () => {
     {
       title: "Insight Plus",
       serviceName: "Data Analytics",
-      price: "149",
+      price: "79", // Reduced Price
       icon: <TrendingUp size={24} />,
       features: [
         "Conversion Tracking",
@@ -80,7 +82,7 @@ const Packages = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -92,7 +94,7 @@ const Packages = () => {
             Specialized <span className="text-[#76153C]">Pricing Plans</span>
           </h2>
           <p className="text-gray-600 text-lg">
-            Choose the specific service you need. Transparent pricing with no hidden costs.
+            Choose the specific service you need and start growing your business today.
           </p>
         </div>
 
@@ -103,7 +105,6 @@ const Packages = () => {
               key={index} 
               className="group p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:bg-white hover:border-[#76153C]/30 hover:shadow-2xl hover:shadow-[#76153C]/10 transition-all duration-300"
             >
-              {/* Icon & Title */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-[#76153C] text-white rounded-xl flex items-center justify-center shadow-lg shadow-[#76153C]/20 group-hover:scale-110 transition-transform">
                   {pkg.icon}
@@ -114,13 +115,11 @@ const Packages = () => {
                 </div>
               </div>
 
-              {/* Price */}
               <div className="mb-8">
                 <span className="text-4xl font-black text-gray-900">${pkg.price}</span>
                 <span className="text-gray-500 font-medium"> / start</span>
               </div>
 
-              {/* Features */}
               <ul className="space-y-4 mb-8">
                 {pkg.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-sm text-gray-600 font-medium">
@@ -130,10 +129,15 @@ const Packages = () => {
                 ))}
               </ul>
 
-              {/* CTA Button */}
-              <button className="w-full py-4 bg-white border-2 border-[#76153C] text-[#76153C] rounded-xl font-bold hover:bg-[#76153C] hover:text-white transition-all duration-300 active:scale-95 shadow-sm">
+              {/* Order on WhatsApp Button */}
+              <a 
+                href={`https://wa.me/${whatsappNumber}?text=Hello! I am interested in the ${pkg.title} (${pkg.serviceName}) package for $${pkg.price}. Please provide more details.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center py-4 bg-white border-2 border-[#76153C] text-[#76153C] rounded-xl font-bold hover:bg-[#76153C] hover:text-white transition-all duration-300 active:scale-95 shadow-sm"
+              >
                 Order This Service
-              </button>
+              </a>
             </div>
           ))}
         </div>
@@ -142,7 +146,12 @@ const Packages = () => {
         <div className="mt-16 bg-[#76153C]/5 border border-[#76153C]/10 p-8 rounded-3xl text-center">
           <h3 className="text-xl font-bold text-gray-900 mb-2">Need a Complete Marketing Bundle?</h3>
           <p className="text-gray-600 mb-6">Combine 3 or more services and get a 20% discount on total billing.</p>
-          <a href="#contact" className="text-[#76153C] font-black underline underline-offset-8 hover:opacity-70 transition-all">
+          <a 
+            href={`https://wa.me/${whatsappNumber}?text=Hello! I want to discuss a Custom Marketing Bundle.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#76153C] font-black underline underline-offset-8 hover:opacity-70 transition-all"
+          >
             Get a Custom Quote
           </a>
         </div>
