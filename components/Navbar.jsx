@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; 
+import { usePathname } from "next/navigation"; 
+import { Menu, X, ArrowRight } from "lucide-react"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname(); 
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -13,78 +15,84 @@ const Navbar = () => {
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Testimonials", href: "/testimonials" },
+    { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ];
 
+  const isActive = (path) => pathname === path;
+
   return (
-    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-[#76153C]">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-[#76153C]/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           
-          {/* Logo/Brand Name */}
+          {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center">
-            <img src="/navlogo.png" alt="SAGAR" className="w-13  h-13"/>
-            <p className="text-2xl font-bold bg-gradient-to-r from-[#76153C] to-black bg-clip-text text-transparent">
+            <img src="/navlogo.png" alt="SAGAR" className="w-16 h-24 object-contain"/>
+            <p className="text-2xl font-black bg-gradient-to-r from-[#76153C] to-black bg-clip-text text-transparent tracking-tighter uppercase">
               SAGOR
             </p>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className="flex space-x-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`transition-colors font-bold text-sm uppercase tracking-wide ${
+                    isActive(link.href) ? "text-[#76153C]" : "text-gray-500 hover:text-[#76153C]"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
             
-            {/* CTA Button */}
-            <Link
-              href="/get-started"
-              className="bg-[#76153C] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 active:scale-95"
-            >
-              Get Started
-            </Link>
+            {/* Single CTA Button: Get Started */}
+            <div className="border-l border-gray-200 pl-6">
+              <Link
+                href="/contact"
+                className="bg-[#76153C] text-white px-7 py-3 rounded-full font-black text-sm uppercase tracking-widest hover:opacity-90 transition-all shadow-xl shadow-[#76153C]/20 active:scale-95 flex items-center gap-2"
+              >
+                Get Started <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
-            >
+            <button onClick={() => setIsOpen(!isOpen)} className="text-[#76153C] p-2">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-2 text-gray-600 hover:text-blue-600 font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="mt-4 px-3 pb-4">
-              <Link
-                href="/get-started"
-                className="block w-full text-center bg-[#76153C] text-white px-6 py-3 rounded-xl font-semibold shadow-md"
-                onClick={() => setIsOpen(false)}
-              >
-                Get Started
-              </Link>
-            </div>
+        <div className="md:hidden bg-white border-b border-[#76153C] p-4 space-y-3 animate-in slide-in-from-top duration-300">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`block px-4 py-3 rounded-xl font-bold transition-all ${
+                isActive(link.href) ? "bg-[#76153C]/10 text-[#76153C]" : "text-gray-700 hover:bg-gray-50"
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <div className="pt-4 border-t border-gray-100">
+            <Link
+              href="/contact"
+              className="w-full text-center bg-[#76153C] text-white py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-lg block"
+              onClick={() => setIsOpen(false)}
+            >
+              Get Started
+            </Link>
           </div>
         </div>
       )}
